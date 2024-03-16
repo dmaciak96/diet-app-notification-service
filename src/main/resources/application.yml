@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: notification-service
+  cloud:
+    config:
+      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/notification-service
+    username: ENC(Ntm4tyt0wU4BLX5YQ2lsANht4UjPaLWSRAydy1DovcCcJ9eyk7ghPBG6SRBDuWb+KZXzjG5c62++ln8im86aQQ==)
+    password: ENC(9UGSknBrdHe0aWlhJ8KpjnMsL0DxlhIYRkcVDAPlGAuVhwup/isMvnDAwptK9Hckgti04PxBLtujWr84yCGOBg==)
+    driverClassName: org.postgresql.Driver
+
+server:
+  port: 8100
+
+kafka:
+  bootstrap-servers: localhost:9092
+  topic-name: notification.service
+  group-id: notification.service.group
