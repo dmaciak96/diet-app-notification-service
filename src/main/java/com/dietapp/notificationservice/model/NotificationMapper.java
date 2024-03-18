@@ -4,6 +4,7 @@ import com.dietapp.notificationservice.model.dto.NotificationDto;
 import com.dietapp.notificationservice.model.entity.CustomProperty;
 import com.dietapp.notificationservice.model.entity.Notification;
 import com.dietapp.notificationservice.model.http.NotificationHttpResponse;
+import com.dietapp.notificationservice.model.message.NotificationCreationMessage;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
@@ -52,4 +53,6 @@ public interface NotificationMapper {
     }
 
     NotificationHttpResponse toHttpResponse(NotificationDto dto);
+
+    NotificationDto toDto(NotificationCreationMessage message);
 }

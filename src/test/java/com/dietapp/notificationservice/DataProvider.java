@@ -4,6 +4,7 @@ import com.dietapp.notificationservice.model.dto.NotificationDto;
 import com.dietapp.notificationservice.model.entity.CustomProperty;
 import com.dietapp.notificationservice.model.entity.Notification;
 import com.dietapp.notificationservice.model.http.NotificationHttpResponse;
+import com.dietapp.notificationservice.model.message.NotificationCreationMessage;
 
 import java.time.Instant;
 import java.util.Map;
@@ -59,6 +60,14 @@ public class DataProvider {
                 .message(MESSAGE)
                 .code(CODE)
                 .id(id)
+                .build();
+    }
+
+    public static NotificationCreationMessage createMessage() {
+        return NotificationCreationMessage.builder()
+                .message(MESSAGE)
+                .code(CODE)
+                .properties(Map.of(KEY, VALUE))
                 .build();
     }
 }

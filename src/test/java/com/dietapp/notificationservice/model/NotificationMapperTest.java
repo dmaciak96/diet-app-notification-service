@@ -1,6 +1,7 @@
 package com.dietapp.notificationservice.model;
 
 import com.dietapp.notificationservice.DataProvider;
+import com.dietapp.notificationservice.model.dto.NotificationDto;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 
@@ -50,5 +51,19 @@ class NotificationMapperTest {
         var result = mapper.toHttpResponse(dto);
 
         assertThat(result).isEqualTo(DataProvider.createHttpResponse(id));
+    }
+
+    @Test
+    void shouldMapKafkaMessageToDto() {
+        var message = DataProvider.createMessage();
+        var result = mapper.toDto(message);
+
+        var expected = NotificationDto.builder()
+                .message(message.message())
+                .properties(message.properties())
+                .code(message.code())
+                .build();
+
+        assertThat(result).isEqualTo(expected);
     }
 }
